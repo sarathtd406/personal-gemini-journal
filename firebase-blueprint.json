@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "journal": {
+      "title": "Journal Entry",
+      "description": "A private conversational journal entry containing the session conversation and generated AI summary.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "maxLength": 200, "description": "Concise title generated for the journal session" },
+        "summary": { "type": "string", "maxLength": 5000, "description": "Concise summary of the journal reflection" },
+        "themes": { "type": "array", "description": "Key themes identified in the journal" },
+        "actionItems": { "type": "array", "description": "Action items, goals, or takeaways" },
+        "messages": { "type": "array", "description": "Conversation messages between user and Gemini" },
+        "userId": { "type": "string", "description": "UID of the owner" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of creation" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      },
+      "required": ["title", "summary", "userId", "createdAt"]
+    },
+    "reflection": {
+      "title": "Weekly Reflection",
+      "description": "Weekly synthesis generated from user's prior journal summaries.",
+      "type": "object",
+      "properties": {
+        "themes": { "type": "array", "description": "Recurring themes over time" },
+        "goals": { "type": "array", "description": "Repeated goals" },
+        "interests": { "type": "array", "description": "Emerging interests" },
+        "concerns": { "type": "array", "description": "Important concerns" },
+        "reflectionQuestion": { "type": "string", "description": "Thoughtful suggested reflection question" },
+        "encouragement": { "type": "string", "description": "Short encouraging reflection" },
+        "userId": { "type": "string", "description": "UID of the owner" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of creation" }
+      },
+      "required": ["reflectionQuestion", "encouragement", "userId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/journals/{journalId}": {
+      "schema": "journal",
+      "description": "Private journal entries isolated per user UID."
+    },
+    "/users/{userId}/reflections/{reflectionId}": {
+      "schema": "reflection",
+      "description": "Saved weekly reflections isolated per user UID."
+    }
+  }
+}
