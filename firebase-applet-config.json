@@ -1,7 +1,7 @@
 {
   "projectId": "ai-agents-project-492205",
   "appId": "1:554179736539:web:8132aca84e8cb88db32dfe",
-  "apiKey": "AIzaSyC8KiJQ-BMAPo4inXgtlAnifK27shLx2T8",
+  "apiKey":"enter-api-key",
   "authDomain": "ai-agents-project-492205.firebaseapp.com",
   "firestoreDatabaseId": "firestore-01",
   "storageBucket": "ai-agents-project-492205.firebasestorage.app",
