@@ -13,24 +13,24 @@
 
 This repository is organized as a unified full-stack TypeScript project:
 
-    **Frontend (src/):**
+**Frontend (src/):**
 
-        src/App.tsx: Main application container and tab navigation state.
+src/App.tsx: Main application container and tab navigation state.
 
-        src/components/: Modular views (JournalEditor, HistoryView, WeeklyReflectionView, PrivacySecurityView, AuthScreen, Header).
+src/components/: Modular views (JournalEditor, HistoryView, WeeklyReflectionView, PrivacySecurityView, AuthScreen, Header).
 
-        src/lib/firebase.ts: Firebase client SDK initialization (Auth, Firestore, Google Sign-In provider).
+src/lib/firebase.ts: Firebase client SDK initialization (Auth, Firestore, Google Sign-In provider).
 
-        src/lib/geminiApi.ts: Client HTTP service dispatching authenticated requests with Firebase Bearer tokens to /api/gemini/*.
+src/lib/geminiApi.ts: Client HTTP service dispatching authenticated requests with Firebase Bearer tokens to /api/gemini/*.
 
-    **Backend (server.ts):**
+**Backend (server.ts):**
 
-        Express.js API server running on Node.js (listens on 0.0.0.0:${PORT || 3000}).
+Express.js API server running on Node.js (listens on 0.0.0.0:${PORT || 3000}).
 
-        authenticateUser middleware: Validates Firebase ID tokens using the official Firebase Admin SDK (verifyIdToken()).
+authenticateUser middleware: Validates Firebase ID tokens using the official Firebase Admin SDK (verifyIdToken()).
 
-        Protected endpoints: /api/gemini/chat, /api/gemini/summarize, /api/gemini/weekly-reflection.
+Protected endpoints: /api/gemini/chat, /api/gemini/summarize, /api/gemini/weekly-reflection.
 
-        Security controls: In-memory per-UID rate limiting, request size caps (1MB), and sanitized error logs.
+Security controls: In-memory per-UID rate limiting, request size caps (1MB), and sanitized error logs.
 
-        Static SPA serving: Delivers bundled Vite assets from dist/ in production mode.
+Static SPA serving: Delivers bundled Vite assets from dist/ in production mode.
