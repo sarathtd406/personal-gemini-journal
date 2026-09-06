@@ -6,35 +6,4 @@
 
 ## Architecture Diagram
 
-                    ┌──────────────────────┐
-                    │       Browser        │
-                    │ Personal Gemini      │
-                    │ Journal UI           │
-                    └──────────┬───────────┘
-                               │
-                    Google Sign-In
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │ Firebase             │
-                    │ Authentication       │
-                    └──────────┬───────────┘
-                               │
-                         Verified UID
-                               │
-              ┌────────────────┴───────────────┐
-              │                                │
-              ▼                                ▼
-   ┌──────────────────┐             ┌──────────────────┐
-   │ Cloud Firestore  │             │    Cloud Run     │
-   │                  │             │                  │
-   │ users/{uid}/     │             │ Firebase Admin   │
-   │ journals/*       │             │ verifyIdToken()  │
-   │                  │             │        │         │
-   │ Security Rules   │             │        ▼         │
-   │ UID isolation    │             │ Gemini API       │
-   └──────────────────┘             └────────┬─────────┘
-                                             │
-                                      Secret Manager
-                                             │
-                                      GEMINI_API_KEY
+<img width="854" height="1024" alt="image" src="https://github.com/user-attachments/assets/4b1b27c5-b596-4e09-a984-70880ca2a16b" />
