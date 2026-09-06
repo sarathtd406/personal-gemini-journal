@@ -73,3 +73,20 @@ Once deployed, copy your Cloud Run service URL (https://<service-name>-<hash>-as
 > Under Authorized domains, click Add domain.
 
 > Paste only your hostname (e.g. personal-gemini-journal-xxx.a.run.app).
+
+## Local Deployment Commands
+
+1. Install dependencies
+> npm install
+
+2. Start development server (port 3000 with Vite middleware)
+> npm run dev
+
+3. Run TypeScript type checks
+> npm run lint
+
+4. Compile production bundle (Vite + esbuild)
+> npm run build
+
+5. Start production server
+> npm start
