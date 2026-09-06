@@ -43,8 +43,9 @@ Static SPA serving: Delivers bundled Vite assets from dist/ in production mode.
 > Google Cloud Project with Cloud Run, Cloud Build, and Secret Manager enabled.
 
 Authenticated gcloud CLI:
-    gcloud auth login
-    gcloud config set project <Project ID>
+
+> gcloud auth login
+> gcloud config set project <Project ID>
 
 2. Store Gemini Secret in Secret Manager
 
@@ -55,7 +56,7 @@ Authenticated gcloud CLI:
 Deploy directly using Google Cloud Buildpacks (Cloud Run runs npm run build and npm start automatically):
 code Bash
 
-gcloud run deploy personal-gemini-journal \
+> gcloud run deploy personal-gemini-journal \
   --source . \
   --region asia-southeast1 \
   --platform managed \
