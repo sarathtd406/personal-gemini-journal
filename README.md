@@ -40,18 +40,15 @@ Static SPA serving: Delivers bundled Vite assets from dist/ in production mode.
 
 1. Prerequisites
 
-    Google Cloud Project (ai-agents-project-492205) with Cloud Run, Cloud Build, and Secret Manager enabled.
+> Google Cloud Project with Cloud Run, Cloud Build, and Secret Manager enabled.
 
-    Authenticated gcloud CLI:
-    code Bash
-
+Authenticated gcloud CLI:
     gcloud auth login
     gcloud config set project <Project ID>
 
 2. Store Gemini Secret in Secret Manager
-code Bash
 
-echo -n "YOUR_GEMINI_API_KEY" | gcloud secrets create gemini-api-key --data-file=-
+> echo -n "YOUR_GEMINI_API_KEY" | gcloud secrets create gemini-api-key --data-file=-
 
 3. Deploy from Source
 
@@ -70,8 +67,8 @@ gcloud run deploy personal-gemini-journal \
 
 Once deployed, copy your Cloud Run service URL (https://<service-name>-<hash>-as.a.run.app):
 
-    Go to Firebase Console -> Select project -> Authentication -> Settings.
+> Go to Firebase Console -> Select project -> Authentication -> Settings.
 
-    Under Authorized domains, click Add domain.
+> Under Authorized domains, click Add domain.
 
-    Paste only your hostname (e.g. personal-gemini-journal-xxx.a.run.app).
+> Paste only your hostname (e.g. personal-gemini-journal-xxx.a.run.app).
