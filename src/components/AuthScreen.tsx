@@ -23,6 +23,9 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLoginSuccess }) => {
         setErrorMsg('Browser popup was blocked. Please allow popups for this site or open in a new tab to complete Google Sign-In.');
       } else if (err?.code === 'auth/popup-closed-by-user') {
         setErrorMsg('Sign-in was cancelled before completion.');
+      } else if (err?.code === 'auth/unauthorized-domain') {
+        const domain = typeof window !== 'undefined' ? window.location.hostname : 'your-cloud-run-domain';
+        setErrorMsg(`Domain unauthorized: "${domain}" needs to be added to Authorized Domains in Firebase Console (Authentication > Settings > Authorized domains).`);
       } else {
         setErrorMsg(err?.message || 'Failed to sign in with Google. Please try again.');
       }
@@ -47,7 +50,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({ onLoginSuccess }) => {
           </div>
           <div className="flex items-center space-x-2 text-xs text-stone-600 bg-white/80 px-3 py-1 rounded-full border border-stone-200">
             <Lock className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Encrypted • Private Workspace</span>
+            <span>Private by Design • Isolated Workspace</span>
           </div>
         </div>
       </div>

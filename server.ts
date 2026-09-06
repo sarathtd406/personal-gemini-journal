@@ -238,8 +238,6 @@ async function startServer() {
       status: 'ok',
       service: 'Personal Gemini Journal API',
       timestamp: new Date().toISOString(),
-      hasGeminiKey: Boolean(process.env.GEMINI_API_KEY),
-      projectId: firebaseProjectId,
     });
   });
 
