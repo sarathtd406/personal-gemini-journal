@@ -6,4 +6,4 @@
 
 ## Architecture Diagram
 
-<img width="854" height="1024" alt="image" src="https://github.com/user-attachments/assets/4b1b27c5-b596-4e09-a984-70880ca2a16b" />
+<img width="749" height="796" alt="Architecture" src="https://github.com/user-attachments/assets/5e19a011-f4e5-477b-b01d-78b15508189f" />
