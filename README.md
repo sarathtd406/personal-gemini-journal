@@ -111,4 +111,7 @@ Personal Gemini Journal enforces a **zero-trust, private-by-design data model** 
 
 ## Application Demo Video
 
-<video src="https://github.com/sarathtd406/personal-gemini-journal/releases/download/untagged-77269ecf65b01cd1935a/App-Demo.mp4" controls width="100%" />
+<p align="center">
+  <video src="https://github.com/sarathtd406/personal-gemini-journal/releases/download/untagged-77269ecf65b01cd1935a/App-Demo.mp4" controls width="750">
+  </video>
+</p>
