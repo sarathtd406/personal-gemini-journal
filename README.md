@@ -100,7 +100,7 @@ Security controls: In-memory per-UID rate limiting, request size caps (1MB), and
 Static SPA serving: Delivers bundled Vite assets from dist/ in production mode.
 
 
-### Firestore Security & Data Isolation Capabilities
+## Firestore Security & Data Isolation Capabilities
 
 Personal Gemini Journal enforces a **zero-trust, private-by-design data model** at the database layer:
 
@@ -108,3 +108,8 @@ Personal Gemini Journal enforces a **zero-trust, private-by-design data model** 
 - **Strict Default-Deny Model**: A wildcard deny-all rule blocks unauthorized access across the entire document tree.
 - **Granular Schema & Input Validation**: Document mutations require alphanumeric ID validation, schema boundary checks, payload field verification, and text length limits (e.g., maximum 500 characters for journal titles) before writes are committed.
 - **Independent Database Partitioning**: Target database routing is pinned to the firestore database, isolating journaling collections from other cloud resources.
+
+## Application Demo Video
+
+<video src="https://github.com/sarathtd406/personal-gemini-journal/releases/download/untagged-77269ecf65b01cd1935a/App-Demo.mp4" controls width="100%">
+</video>
