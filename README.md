@@ -34,3 +34,44 @@ Protected endpoints: /api/gemini/chat, /api/gemini/summarize, /api/gemini/weekly
 Security controls: In-memory per-UID rate limiting, request size caps (1MB), and sanitized error logs.
 
 Static SPA serving: Delivers bundled Vite assets from dist/ in production mode.
+
+
+## Cloud Run Deployment Instructions
+
+1. Prerequisites
+
+    Google Cloud Project (ai-agents-project-492205) with Cloud Run, Cloud Build, and Secret Manager enabled.
+
+    Authenticated gcloud CLI:
+    code Bash
+
+    gcloud auth login
+    gcloud config set project <Project ID>
+
+2. Store Gemini Secret in Secret Manager
+code Bash
+
+echo -n "YOUR_GEMINI_API_KEY" | gcloud secrets create gemini-api-key --data-file=-
+
+3. Deploy from Source
+
+Deploy directly using Google Cloud Buildpacks (Cloud Run runs npm run build and npm start automatically):
+code Bash
+
+gcloud run deploy personal-gemini-journal \
+  --source . \
+  --region asia-southeast1 \
+  --platform managed \
+  --allow-unauthenticated \
+  --set-secrets GEMINI_API_KEY=gemini-api-key:latest \
+  --port 3000
+
+4. Authorize Cloud Run Domain in Firebase Authentication
+
+Once deployed, copy your Cloud Run service URL (https://<service-name>-<hash>-as.a.run.app):
+
+    Go to Firebase Console -> Select project -> Authentication -> Settings.
+
+    Under Authorized domains, click Add domain.
+
+    Paste only your hostname (e.g. personal-gemini-journal-xxx.a.run.app).
